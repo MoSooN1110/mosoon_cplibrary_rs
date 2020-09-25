@@ -56,6 +56,7 @@ impl Doubling {
 
 #[test]
 fn test_doubling() {
+    //https://atcoder.jp/contests/abc013/tasks/abc013_4 passed
     let mut n = 16 as usize;
     let mut d = Doubling::new(n, 30);
     for i in 0..n {
