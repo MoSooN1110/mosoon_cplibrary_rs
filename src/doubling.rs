@@ -20,11 +20,11 @@ pub struct Doubling {
 }
 
 impl Doubling {
-    fn new(n: usize) -> Doubling {
+    fn new(n: usize, max_loop: usize) -> Doubling {
         Doubling {
             n,
-            log: (n as f64).log2().floor() as usize,
-            table: vec![vec![-1; n]; (n as f64).log2().floor() as usize],
+            log: ((max_loop as f64).log2().floor()) as usize + 1,
+            table: vec![vec![-1; n]; (max_loop as f64).log2().floor() as usize + 2],
         }
     }
     fn set_next(&mut self, i: usize, x: usize) {
@@ -45,7 +45,7 @@ impl Doubling {
     }
 
     fn query(&mut self, mut k: usize, t: usize) -> usize {
-        for i in (0..self.log - 1).rev() {
+        for i in (0..self.log).rev() {
             if (t >> i) & 1 == 1 {
                 k = self.table[i][k] as usize;
             }
@@ -57,7 +57,7 @@ impl Doubling {
 #[test]
 fn test_doubling() {
     let mut n = 16 as usize;
-    let mut d = Doubling::new(n);
+    let mut d = Doubling::new(n, 30);
     for i in 0..n {
         d.set_next(i, (i * 2) % n);
     }
