@@ -30,7 +30,7 @@ fn prime_factorization(x: usize) -> BTreeMap<usize, usize> {
             }
             xx /= p;
         }
-        println!("{:?} {:?}", p, res);
+        // println!("{:?} {:?}", p, res);
         p += 1;
     }
 

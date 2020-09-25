@@ -1,3 +1,4 @@
+mod doubling;
 mod vector_lcm;
 
 // #[cfg(test)]
