@@ -32,7 +32,7 @@ impl Doubling {
         return;
     }
     fn build(&mut self) {
-        for k in 0..self.log - 1 {
+        for k in 0..self.log {
             for i in 0..self.table[k].len() {
                 if self.table[k][i] == -1 {
                     self.table[k + 1][i] = -1;
